@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 public class TextAnalyzerController {
@@ -40,11 +42,14 @@ public class TextAnalyzerController {
                 result = textAnalyzerService.analyzeTextForConsonants(request.getText());
                 break;
             default:
-                throw new IllegalArgumentException("Invalid analysis type");
+                throw new IllegalArgumentException("Invalid analysis type. Please use 'vowels' or 'consonants'");
 
 
         }
-        response.setLetter(result);
+
+        List<String> messages = result.entrySet().stream().map((entry -> String.format("Letter '%s' appears %d times", entry.getKey(), entry.getValue()))).collect(Collectors.toList());
+
+        response.setMessages(messages);
         return ResponseEntity.ok(response);
 
     }

@@ -1,16 +1,18 @@
 package com.example.TextAnalyzer.model;
 
+import java.util.List;
 import java.util.Map;
 
 public class TextAnalysisResponse {
 
-    private Map<Character, Long> letter;
 
-    public Map<Character, Long> getLetter(){
-        return letter;
+  private List<String> messages;
+
+    public List<String> getMessages(){
+        return messages;
     }
 
-    public void setLetter(Map<Character,Long> letter){
-        this.letter=letter;
+    public void setMessages(List<String> messages) {
+        this.messages = messages;
     }
 }
