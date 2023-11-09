@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Locale;
+import java.util.Map;
+
 @RestController
 public class TextAnalyzerController {
     private final TextAnalyzerService textAnalyzerService;
@@ -25,15 +28,26 @@ public class TextAnalyzerController {
     }
 
     @RequestMapping("/analyze")
-    public String analyzeText(String text) {
-        return "This text will be analyzed";
-    }
-
-
-    @PostMapping
     public ResponseEntity<TextAnalysisResponse> analyzeText(@RequestBody TextAnalysisRequest request) {
         TextAnalysisResponse response = new TextAnalysisResponse();
-        response.setLetter(textAnalyzerService.analyzeText(request.getText()));
+        Map<Character, Long> result;
+
+        switch (request.getAnalysisType().toLowerCase(Locale.ROOT)) {
+            case "vowels":
+                result = textAnalyzerService.analyzeTextForVowels(request.getText());
+                break;
+            case "consonants":
+                result = textAnalyzerService.analyzeTextForConsonants(request.getText());
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid analysis type");
+
+
+        }
+        response.setLetter(result);
         return ResponseEntity.ok(response);
+
     }
+
+
 }
