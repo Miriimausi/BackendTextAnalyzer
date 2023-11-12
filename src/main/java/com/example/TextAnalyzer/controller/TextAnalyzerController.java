@@ -27,7 +27,7 @@ public class TextAnalyzerController {
         return "welcome";
     }
 
-    @RequestMapping("/analyze")
+    @PostMapping("/analyze")
     public ResponseEntity<TextAnalysisResponse> analyzeText(@RequestBody TextAnalysisRequest request) {
         TextAnalysisResponse response = new TextAnalysisResponse();
         Map<Character, Long> result;
