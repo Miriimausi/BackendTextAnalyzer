@@ -1,18 +1,23 @@
 package com.example.TextAnalyzer.model;
 
+import lombok.Getter;
+
 import java.util.List;
 import java.util.Map;
 
+
+@Getter
 public class TextAnalysisResponse {
 
+    private Map<Character, Long> vowelsResult;
+    private Map<Character, Long> consonantsResult;
 
-  private List<String> messages;
 
-    public List<String> getMessages(){
-        return messages;
+    public void setVowelsResult(Map<Character, Long> vowelsResult) {
+        this.vowelsResult = vowelsResult;
     }
 
-    public void setMessages(List<String> messages) {
-        this.messages = messages;
+    public void setConsonantsResult(Map<Character, Long> consonantsResult) {
+        this.consonantsResult = consonantsResult;
     }
 }

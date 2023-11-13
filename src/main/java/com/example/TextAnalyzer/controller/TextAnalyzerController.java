@@ -27,27 +27,29 @@ public class TextAnalyzerController {
         return "welcome";
     }
 
+
     @PostMapping("/analyze")
     public ResponseEntity<TextAnalysisResponse> analyzeText(@RequestBody TextAnalysisRequest request) {
         TextAnalysisResponse response = new TextAnalysisResponse();
-        Map<Character, Long> result;
 
         switch (request.getAnalysisType().toLowerCase(Locale.ROOT)) {
             case "vowels":
-                result = textAnalyzerService.analyzeTextForVowels(request.getText());
+                Map<Character, Long> vowelsResult = textAnalyzerService.analyzeTextForVowels(request.getText());
+                response.setVowelsResult(vowelsResult);
                 break;
             case "consonants":
-                result = textAnalyzerService.analyzeTextForConsonants(request.getText());
+                Map<Character, Long> consonantsResult = textAnalyzerService.analyzeTextForConsonants(request.getText());
+                response.setConsonantsResult(consonantsResult);
+                break;
+            case "both":
+                Map<String, Map<Character, Long>> bothResult = textAnalyzerService.analyzeTextForBoth(request.getText());
+                response.setVowelsResult(bothResult.get("vowels"));
+                response.setConsonantsResult(bothResult.get("consonants"));
                 break;
             default:
-                throw new IllegalArgumentException("Invalid analysis type. Please use 'vowels' or 'consonants'");
-
-
+                throw new IllegalArgumentException("Invalid analysis type. Please use 'vowels', 'consonants', or 'both'");
         }
 
-        List<String> messages = result.entrySet().stream().map((entry -> String.format("Letter '%s' appears %d times", entry.getKey(), entry.getValue()))).collect(Collectors.toList());
-
-        response.setMessages(messages);
         return ResponseEntity.ok(response);
 
     }

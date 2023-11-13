@@ -45,4 +45,23 @@ public class TextAnalyzerService {
         }
         return countedConsonants;
     }
+
+    public Map<String, Map<Character, Long>> analyzeTextForBoth(String text) {
+        Map<Character,Long> countedVowels = new HashMap<>();
+        Map<Character, Long> countedConsonants = new HashMap<>();
+        char[] chars = text.toCharArray();
+
+        for (char c: chars){
+            if (isVowel(c)){
+                countedVowels.merge(Character.toLowerCase(c), 1L, Long::sum);
+            } else if (Character.isLetter(c)) {
+                countedConsonants.merge(Character.toLowerCase(c), 1L, Long::sum);
+
+            }
+        }
+        Map<String, Map<Character, Long>> result = new HashMap<>();
+        result.put("vowels", countedVowels);
+        result.put("consonants", countedConsonants);
+        return result;
+    }
 }
