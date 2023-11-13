@@ -8,10 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.stream.Collectors;
+
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class TextAnalyzerController {
@@ -52,6 +52,11 @@ public class TextAnalyzerController {
 
         return ResponseEntity.ok(response);
 
+    }
+
+    @GetMapping("/text")
+    public String getText() {
+        return "Hello";
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
