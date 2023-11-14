@@ -11,7 +11,6 @@ public class TextAnalysisResponse {
     private Map<Character, Long> vowelsResult;
     private Map<Character, Long> consonantsResult;
 
-
     public void setVowelsResult(Map<Character, Long> vowelsResult) {
         this.vowelsResult = vowelsResult;
     }

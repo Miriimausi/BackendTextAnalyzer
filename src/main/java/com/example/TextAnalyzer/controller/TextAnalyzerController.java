@@ -22,12 +22,6 @@ public class TextAnalyzerController {
         this.textAnalyzerService = textAnalyzerService;
     }
 
-    @RequestMapping("/welcome")
-    public String welcome() {
-        return "welcome";
-    }
-
-
     @PostMapping("/analyze")
     public ResponseEntity<TextAnalysisResponse> analyzeText(@RequestBody TextAnalysisRequest request) {
         TextAnalysisResponse response = new TextAnalysisResponse();
@@ -52,11 +46,6 @@ public class TextAnalyzerController {
 
         return ResponseEntity.ok(response);
 
-    }
-
-    @GetMapping("/text")
-    public String getText() {
-        return "Hello";
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
