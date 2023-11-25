@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>TextAnalyzer</artifactId>
+	<artifactId>BackendTextAnalyzer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>TextAnalyzer</name>
 	<description>TextAnalyzer project for Dedalus Healthcare coding task.</description>
