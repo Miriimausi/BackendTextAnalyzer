@@ -1,4 +1,4 @@
-package com.example.TextAnalyzer.config;
+package com.example.TextAnalyzer.configurations;
 
 import lombok.NonNull;
 import org.springframework.context.annotation.Bean;

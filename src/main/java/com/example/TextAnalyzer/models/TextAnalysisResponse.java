@@ -1,4 +1,4 @@
-package com.example.TextAnalyzer.model;
+package com.example.TextAnalyzer.models;
 
 import lombok.Getter;
 
