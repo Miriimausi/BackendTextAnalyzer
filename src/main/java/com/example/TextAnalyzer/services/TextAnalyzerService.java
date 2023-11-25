@@ -1,6 +1,6 @@
 package com.example.TextAnalyzer.services;
 
-import com.example.TextAnalyzer.Enum.AnalysisType;
+import com.example.TextAnalyzer.enums.AnalysisType;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;

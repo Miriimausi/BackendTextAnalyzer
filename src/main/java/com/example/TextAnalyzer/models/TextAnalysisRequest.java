@@ -1,6 +1,6 @@
 package com.example.TextAnalyzer.models;
 
-import com.example.TextAnalyzer.Enum.AnalysisType;
+import com.example.TextAnalyzer.enums.AnalysisType;
 import lombok.Getter;
 
 @Getter

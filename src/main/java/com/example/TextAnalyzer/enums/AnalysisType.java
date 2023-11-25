@@ -1,4 +1,4 @@
-package com.example.TextAnalyzer.Enum;
+package com.example.TextAnalyzer.enums;
 
 public enum AnalysisType {
     Vowels, Consonants, Both

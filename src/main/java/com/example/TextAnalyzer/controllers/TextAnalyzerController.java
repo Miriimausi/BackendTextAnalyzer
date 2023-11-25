@@ -1,6 +1,6 @@
 package com.example.TextAnalyzer.controllers;
 
-import com.example.TextAnalyzer.Enum.AnalysisType;
+import com.example.TextAnalyzer.enums.AnalysisType;
 import com.example.TextAnalyzer.models.TextAnalysisRequest;
 import com.example.TextAnalyzer.models.TextAnalysisResponse;
 import com.example.TextAnalyzer.services.TextAnalyzerService;
