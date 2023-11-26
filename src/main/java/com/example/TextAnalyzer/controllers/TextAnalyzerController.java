@@ -40,7 +40,7 @@ public class TextAnalyzerController {
                 response.setConsonantsResult(textAnalyzerService.analyzeText(request.getText(), AnalysisType.Consonants));
                 break;
             default:
-                throw new IllegalArgumentException("Invalid analysis type. Please use 'vowels', 'consonants', or 'both'");
+                throw new IllegalArgumentException("Invalid analysis type. Please use 'Vowels', 'Consonants', or 'Both'");
         }
         return ResponseEntity.ok(response);
     }
