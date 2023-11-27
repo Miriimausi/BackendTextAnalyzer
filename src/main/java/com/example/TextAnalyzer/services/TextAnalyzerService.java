@@ -5,16 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
-
-/**
- * The program for calculating how many times a letter in given sentence appears.
- * It gives numbers either for vowels or for consonants based on program input.
- * <p>
- * The first parameter can be 'vowels' or 'consonants'
- * The second parameter is the sentence to be analyzed.
- * <p>
- * Task: Refactor this code to be production ready and create appropriate unit tests.
- */
 @Service
 public class TextAnalyzerService {
     private boolean isVowel(char c) {
